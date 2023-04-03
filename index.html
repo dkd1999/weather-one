@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="./cloudy.png">
+        <title> Weather</title>
+    </head>
+    <body>
+        <video src="./storm-40581.mp4" id="backvideo" autoplay muted loop>
+        </video>
+     <div class="biggestbox">
+            <div id="head"> Weather</div>
+            <div class="top">
+                <div class="box2">
+                    <input type="text" placeholder="Enter your city name"
+                        id="searchweather">
+                    <button id="button1" type="button" onclick="weather()"><i
+                            class="fa-solid fa-magnifying-glass" style="color:
+                            #ffffff;"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="output">
+    
+            </div>
+     </div>
+
+    </body>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        int[0].mainegrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+    <script>
+    async function weather(){
+        let cityname = searchweather.value
+        if (cityname) {
+            let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=8ac5c4d57ba6a4b3dfcf622700447b1e`)
+
+res.json().then((result)=>{
+    displaydata(result)
+    console.log(result);
+
+})
+        } else {
+            alert("Please enter a valid city name")
+            
+        }
+        
+    }
+     function displaydata(weatherdata){
+        // main_w.innerHTML =weatherdata.weather[0].main
+        // deg.innerHTML = Math.floor(weatherdata.main.temp-273.15)+"°"
+        // degfeels.innerHTML ="Feels like :  "+ Math.floor(weatherdata.main.feels_like-273.15*100/100)+"°"
+        // locname.innerHTML = weatherdata.name
+        // pressure.innerHTML ="Pressure : "+  weatherdata.main.pressure
+        // humidity.innerHTML ="Humidity : "+ weatherdata.main.humidity
+
+        let  htmldata = `
+        <div class="bigbox">
+            
+            <div class="container">
+                <div class="box1">
+                    <div style="display: flex">
+                        
+                        <div id="locname">${weatherdata.name}</div>
+                    </div>
+                    <div style="display: flex; gap:40px">
+                        <div id="deg">${Math.floor(weatherdata.main.temp-273.15)+"°C "}</div>
+                        
+                    </div>
+                    <div id="main_w">${weatherdata.weather[0].main}</div>
+                    <div style="display: flex; font-size: 20px;">
+                        <div id="degfeels">${"Feels like :  "+ Math.floor(weatherdata.main.feels_like-273.15*100/100)+"°C"}</div>
+                    </div>
+                    <br><br>
+                    <div style="display: flex;">
+                        
+                        <div id="pressure">${"Pressure : "+  weatherdata.main.pressure+" hPa"}</div>
+                    </div>
+                    <div style="display: flex;">
+                        
+                        <div id="humidity">${"Humidity : "+ weatherdata.main.humidity+" g.m-3"}</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        `
+
+        output.innerHTML = htmldata
+
+    }
+</script>
+</html>

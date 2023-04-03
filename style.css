@@ -1,0 +1,145 @@
+body{
+    /* background-image: url(https://wallpaperaccess.com/full/1261630.jpg); */
+    background-size: cover;  
+}
+#backvideo{
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: brightness(120%) contrast(110%);
+}
+.top{
+    padding: 25px;
+    display: flex;
+    justify-content: end;
+}
+.biggestbox{
+    
+}
+.bigbox{
+    margin: auto;
+    width: 68vw;
+    height:70vh;
+    background-color: rgba(250, 235, 215, 0.588);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-image:url(./download.jfif) ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    -moz-transition: opacity .5s ease-in-out;
+   -ms-transition: opacity .5s ease-in-out;
+   -o-transition: opacity .5s ease-in-out;
+   transition: opacity .5s ease-in-out;
+    color: antiquewhite;
+    opacity: 0.88;
+}
+.bigbox:hover{
+    opacity: 1;
+
+}
+.container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+
+.bigbox p {
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 8px;
+    font-weight: 600;
+    color: rgb(154, 154, 154);
+}
+.box1{
+    width: 600px;
+    height: 97%;
+    border-radius: 20px;
+    display: block;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 50px 80px;
+    background-color: rgba(0, 0, 0, 0.558);
+    transition: width 1s;
+}
+.box1:hover{
+    width: 660px;
+    height: 97%;
+    transition: 0.6s;
+}
+.box2{
+    height: 50px;
+    border-radius: 20px;    
+    display: flex;
+    justify-content: end;
+    margin-top: -148px;
+    margin-right: 286px;
+
+}
+#head{
+    font-size: 74px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:navajowhite;
+
+}
+#searchweather{
+    border-radius: 18px;
+    border: 2px solid rgba(245, 245, 220, 0);
+    background-color: rgba(245, 245, 220, 0.302);
+    font-size: 29px;
+    padding: 27px;
+    width: 304px;
+    color: rgb(240, 240, 240);
+}
+#searchweather:hover{
+    background-color: rgba(0, 0, 0, 0.407);
+    transition: 0.8s;
+}
+::placeholder{
+    color:rgb(209, 209, 209);
+    font-size: 27px;
+}
+#button1{
+ border-radius: 50%;
+ border: 2px solid rgba(245, 245, 220, 0);
+ background-color: rgba(194, 157, 229, 0.428);
+ color: antiquewhite;
+ font-size: 30px;
+ margin-left: 10px;
+ width: 58px;
+ height: 58px;
+}
+#button1:hover{
+    background-color: rgb(76, 0, 255);
+    transition: 0.5s;
+}
+#main_w{
+    font-size: 60px;
+    font-weight: 600;
+    color: antiquewhite;
+}
+
+#deg{
+font-size: 70px;
+font-weight: 500;
+color: antiquewhite;
+
+}
+#degfeels{
+    font-size: 30px;
+    color: antiquewhite;
+}
+#locname{
+    font-size: 90px;
+    color: rgb(119, 200, 200);
+}
