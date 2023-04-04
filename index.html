@@ -44,17 +44,25 @@
         crossorigin="anonymous"></script>
     <script>
     async function weather(){
+        // get city name
         let cityname = searchweather.value
         if (cityname) {
-            let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=8ac5c4d57ba6a4b3dfcf622700447b1e`)
-
+            // if cityname available , make api call
+            let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=8ac5c4d57ba6a4b3dfcf622700447b1e`)
+// to get metric units - use api you can use api link (https://api.openweathermap.org/data/2.5/weather?q=kakkanad&units=metric&appid=8ac5c4d57ba6a4b3dfcf622700447b1e)
 res.json().then((result)=>{
-    displaydata(result)
-    console.log(result);
+    if(result.message){
+        console.log(result.message);
+        alert(result.message)
+    }
+    else{
+        console.log(result);
+        displaydata(result)
+    }
 
 })
         } else {
-            alert("Please enter a valid city name")
+            alert("City name cannot be empty, try again")
             
         }
         
@@ -67,6 +75,10 @@ res.json().then((result)=>{
         // pressure.innerHTML ="Pressure : "+  weatherdata.main.pressure
         // humidity.innerHTML ="Humidity : "+ weatherdata.main.humidity
 
+        const sunrise = new Date ((weatherdata.sys.sunrise + weatherdata.timezone)*1000)
+            const sunset = new Date ((weatherdata.sys.sunset + weatherdata.timezone*1000))
+            const date = new Date ((weatherdata.dt)*1000)
+
         let  htmldata = `
         <div class="bigbox">
             
@@ -77,14 +89,16 @@ res.json().then((result)=>{
                         <div id="locname">${weatherdata.name}</div>
                     </div>
                     <div style="display: flex; gap:40px">
-                        <div id="deg">${Math.floor(weatherdata.main.temp-273.15)+"°C "}</div>
+                        <div id="deg">${Math.floor(weatherdata.main.temp)+"°C "}</div>
                         
                     </div>
-                    <div id="main_w">${weatherdata.weather[0].main}</div>
+                    <div id="main_w">${weatherdata.weather[0].main}&nbsp  <img src="https://openweathermap.org/img/w/${weatherdata.weather[0].icon}.png"></div>
+                    
                     <div style="display: flex; font-size: 20px;">
-                        <div id="degfeels">${"Feels like :  "+ Math.floor(weatherdata.main.feels_like-273.15*100/100)+"°C"}</div>
+                        <div id="degfeels">${"Feels like :  "+ Math.floor(weatherdata.main.feels_like)+"°C"}</div>
                     </div>
-                    <br><br>
+                    
+                    <div id="country">Country :  ${weatherdata.sys.country}</div>
                     <div style="display: flex;">
                         
                         <div id="pressure">${"Pressure : "+  weatherdata.main.pressure+" hPa"}</div>
@@ -98,7 +112,7 @@ res.json().then((result)=>{
             </div>
         </div>
         `
-
+        // <div>Sunrise :  ${sunrise}</div>
         output.innerHTML = htmldata
 
     }
