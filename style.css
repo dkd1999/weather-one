@@ -12,9 +12,10 @@ body{
     filter: brightness(120%) contrast(110%);
 }
 .top{
-    padding: 25px;
+    padding: 5px;
+    padding-bottom: 30px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 .biggestbox{
     
@@ -22,7 +23,7 @@ body{
 .bigbox{
     margin: auto;
     width: 68vw;
-    height:70vh;
+    height:69vh;
     background-color: rgba(250, 235, 215, 0.588);
     border-radius: 20px;
     display: flex;
@@ -80,8 +81,8 @@ body{
     border-radius: 20px;    
     display: flex;
     justify-content: end;
-    margin-top: -148px;
-    margin-right: 14.3vw;
+    
+    margin-right: 
 
 }
 
@@ -90,9 +91,9 @@ body{
     text-align: center;
     display: flex;
     justify-content: center;
-    padding: 40px;
+    padding: 3px;
     font-family: Arial, Helvetica, sans-serif;
-    color:navajowhite;
+    color:rgba(255, 231, 196, 0.861);
 
 }
 #searchweather{
@@ -100,7 +101,7 @@ body{
     border: 2px solid rgba(245, 245, 220, 0);
     background-color: rgba(245, 245, 220, 0.302);
     font-size: 29px;
-    padding: 27px;
+    padding: 15px;
     width: 304px;
     color: rgb(240, 240, 240);
 }
@@ -117,10 +118,10 @@ body{
  border: 2px solid rgba(245, 245, 220, 0);
  background-color: rgba(194, 157, 229, 0.428);
  color: antiquewhite;
- font-size: 30px;
+ font-size: 27px;
  margin-left: 10px;
- width: 58px;
- height: 58px;
+ width: 52px;
+ height: 52px;
 }
 #button1:hover{
     background-color: rgb(76, 0, 255);
@@ -161,7 +162,7 @@ color: antiquewhite;
         
     }
     #head{
-        padding-top: 20px;
+        padding-top: 10px;
         padding-bottom: 5px;
         font-size: 56px;
     }
@@ -216,43 +217,43 @@ color: antiquewhite;
     }
     .box1{
         width: 98%;
-        height: 86%;
+        height: 89%;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-        font-size: 25px;
+        font-size: 24px;
         font-weight: 500;
-        padding: 30px 20px;
+        padding: 20px 20px;
         background-color: rgba(0, 0, 0, 0.606);
         transition: 0.5s;
        
     }
     .box1:hover{
         width: 99%;
-        height: 89%;
+        height: 90%;
         transition: 0.5s;
         background-color: rgba(0, 0, 0, 0.701);
     }
     #locname{
-        font-size: 69px;
+        font-size: 66px;
         font-weight: 600;
         color: rgb(119, 200, 200);
     }
     #main_w{
-        font-size: 58px;
+        font-size: 55px;
         font-weight: 500;
         color: antiquewhite;
         
     }
     
     #deg{
-    font-size: 65px;
+    font-size: 63px;
     font-weight: 500;
     color: rgb(244, 212, 169);
     
     }
     #degfeels{
-        font-size: 37px;
+        font-size: 34px;
         color: rgb(47, 223, 167);
         padding-bottom: 10px;
     }
@@ -262,7 +263,7 @@ color: antiquewhite;
         color: rgb(184, 236, 203);
     }
     #pressure{
-        padding: 10px 0px;
+        padding: 5px 0px;
     }
        
 }
